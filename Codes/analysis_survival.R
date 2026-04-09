@@ -1,6 +1,6 @@
 ################################## START ##################################
 # analysis_survival.R
-# 输入: Example_annotations.csv, fibroblast_TCGA_samples.csv, TCGA_clinical_data.csv
+# 输入: Example_annotations.txt, fibroblast_TCGA_samples.txt, TCGA_clinical_data.txt
 # 输出: 5.Survival_prediction文件夹及其所有分析结果
 required_packages <- c("tidyverse", "survival", "survminer", "ggplot2", "pheatmap", "ggpubr", "forestplot", "reshape2", "RColorBrewer", "viridis", "cowplot", "gridExtra")
 new_packages <- required_packages[!(required_packages %in% installed.packages()[,"Package"])]
