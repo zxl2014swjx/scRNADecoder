@@ -17,7 +17,7 @@ cat("\n创建输出目录...\n")
 dir.create("3.Senescence_score", showWarnings = FALSE)
 cat("\n1. 正在加载数据...\n")
 expr_mat<-read.table("1.Data_preprocess/data_preprocessed.txt",header=T,sep="\t",row.names=1,check.names=F)
-gene<-read.table("Example_Data/senescence_genesets.txt",header=T,sep="\t")
+gene<-read.table(unz("Reference.zip", "senescence_genesets.txt"),header=T,sep="\t")
 gene_modules <- list(
 Senescence = gene[which(gene$Type=="Senescence"),]$Genes,
 Stemness = gene[which(gene$Type=="Stemness"),]$Genes)
