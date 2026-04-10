@@ -27,21 +27,21 @@ dir.create("5.Survival_prediction", showWarnings = FALSE)
 new_samples_df<-read.table("2.Identify_celltype/Example_annotations.csv",header=T,sep=",",row.names=1)
 new_samples_df<-new_samples_df[,-c(1:3)]
 new_samples_df<-t(new_samples_df[,1:16])
-if(file.exists("Example_Data/fibroblast_TCGA_samples.txt")) {
-  tcga_fibroblast <- read.table("Example_Data/fibroblast_TCGA_samples.txt",header=T,sep="\t")
+if(file.exists(unz("Reference.zip", "fibroblast_TCGA_samples.txt"))) {
+  tcga_fibroblast <- read.table(unz("Reference.zip", "fibroblast_TCGA_samples.txt"),header=T,sep="\t")
   tcga_fibroblast_df <- as.data.frame(tcga_fibroblast)
   rownames(tcga_fibroblast_df) <- tcga_fibroblast_df[,1]
   tcga_fibroblast_df <- tcga_fibroblast_df[,-1]
   tcga_fibroblast_df <- t(tcga_fibroblast_df)
   cat("  TCGA成纤维细胞数据: ", nrow(tcga_fibroblast_df), "行 ×", ncol(tcga_fibroblast_df), "个样本\n")
 } else {
-  stop("错误: 找不到 fibroblast_TCGA_samples.csv 文件")
+  stop("错误: 找不到 fibroblast_TCGA_samples.txt 文件")
 }
-if(file.exists("Example_Data/TCGA_clinical_data.txt")) {
-  tcga_clinical <- read.table("Example_Data/TCGA_clinical_data.txt",header=T,sep="\t")
+if(file.exists(unz("Reference.zip", "TCGA_clinical_data.txt"))) {
+  tcga_clinical <- read.table(unz("Reference.zip", "TCGA_clinical_data.txt"),header=T,sep="\t")
   cat("  TCGA临床数据: ", nrow(tcga_clinical), "个样本 ×", ncol(tcga_clinical), "个变量\n")
 } else {
-  stop("错误: 找不到 TCGA_clinical_data.csv 文件")
+  stop("错误: 找不到 TCGA_clinical_data.txt 文件")
 }
 cat("\n2. 进行数据预处理...\n")
 tcga_samples <- colnames(tcga_fibroblast_df)
