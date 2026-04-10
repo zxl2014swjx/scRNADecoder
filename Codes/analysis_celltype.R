@@ -10,9 +10,9 @@ required_packages <- c("ggplot2", "RColorBrewer")
   library(ggplot2)
   library(RColorBrewer)
   if (!dir.exists(output_dir)) {dir.create(output_dir, recursive = TRUE)} 
-annotate_scRNA <- function(query_matrix, ref_matrix, method = "pearson",top_genes = 2000,min_confidence = 0.1) {
+annotate_scRNA <- function(query_matrix=NULL, ref_matrix=NULL, method = "pearson",top_genes = 2000,min_confidence = 0.1) {
   query_matrix<-read.table(query_matrix,header=T,sep="\t",row.names=1)
-  ref_matrix<-read.table(ref_matrix,header=T,sep="\t",row.names=1)
+  ref_matrix = read.table(unz("Reference.zip", "Cand_Major8_subtype16_average.txt"),header=T,sep="\t",row.names=1)
   if (!is.matrix(query_matrix)) query_matrix <- as.matrix(query_matrix)
   if (!is.matrix(ref_matrix)) ref_matrix <- as.matrix(ref_matrix)
   cat(sprintf("查询数据: %d 个基因, %d 个细胞\n", nrow(query_matrix), ncol(query_matrix)))
