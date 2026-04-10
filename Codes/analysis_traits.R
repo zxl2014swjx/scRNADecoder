@@ -22,7 +22,7 @@ suppressPackageStartupMessages({
   library(ggpubr)
 })
 dir.create("4.Traits_association", showWarnings = FALSE)
-gene_traits_df<-read.table("Example_Data/Result_scDRS_correlations.txt",header=T,sep="\t",row.names=1)
+gene_traits_df<-read.table(unz("Reference.zip", "Result_scDRS_correlations.txt"),header=T,sep="\t",row.names=1)
 gene_samples_df<-read.table("1.Data_preprocess/data_preprocessed.txt",header=T,sep="\t",row.names=1)
 fibroblast_df<-read.table("2.Identify_celltype/Example_annotations.csv",
   header=T,sep=",",row.names=1)
