@@ -1,6 +1,6 @@
 ################################## START ##################################
 # analysis_traits.R
-# 输入: gene_traits_matrix.csv, normalized_gene_samples.csv, fibroblast_samples.csv
+# 输入: data_preprocess.txt, 细胞类型注释，性状特异基因矩阵
 # 输出: 4.Traits_association文件夹及其所有分析结果
 required_packages <- c("tidyverse", "reshape2", "pheatmap", "ggplot2", "ggdendro", 
                       "corrplot", "RColorBrewer", "viridis", "ggpubr", "ComplexHeatmap")
