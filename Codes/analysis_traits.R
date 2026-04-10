@@ -1,6 +1,5 @@
 ################################## START ##################################
 # analysis_traits.R
-# 性状预测分析脚本
 # 输入: gene_traits_matrix.csv, normalized_gene_samples.csv, fibroblast_samples.csv
 # 输出: 4.Traits_association文件夹及其所有分析结果
 required_packages <- c("tidyverse", "reshape2", "pheatmap", "ggplot2", "ggdendro", 
